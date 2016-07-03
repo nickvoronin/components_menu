@@ -3,21 +3,34 @@
 <head>
 	<title>Faviconer</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="menu.css">
+	<link rel="stylesheet" type="text/css" href="./libs/pure-min/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="./blocks/menu/menu.css">
 </head>
 <body>
 
-<div class="menu">
-	<div class="menu__title">Сладости (нажми меня)!</div>
-	<div class="menu__list">
-		<div class="menu__item">Торт</div>
-		<div class="menu__item">Пончик</div>
-		<div class="menu__item">Пирожное</div>
-	</div>
-</div>
+
+<div class="menu pure-menu custom-restricted-width">
+	<span class="pure-menu-heading">JavaScript Single Page Application</span>
+	<ul class="menu__list pure-menu-list">
+		<li class="pure-menu-item" data-index="0">
+			<a class="pure-menu-link" href="https://vk.com" data-action="pick">vk.com</a>
+			<i class="close" data-action="remove"></i>	
+		</li>
+		<li class="pure-menu-item" data-index="1">
+			<a class="pure-menu-link" href="https://ok.ru" data-action="pick">ok.ru</a>
+			<i class="close" data-action="remove"></i>
+		</li>
+		<li class="pure-menu-item" data-index="2">
+			<a class="pure-menu-link" href="https://yahoo.com" data-action="pick">yahoo.com</a>
+			<i class="close" data-action="remove"></i>
+		</li>
+	</ul>
+</div>	
+
+
 
 <!-- Dependencies -->
-<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript" src="./blocks/menu/menu.js"></script>
 
 <!-- Application -->
 <script type="text/javascript" src="app.js"></script>
