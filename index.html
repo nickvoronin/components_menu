@@ -5,27 +5,31 @@
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="./libs/pure-min/pure-min.css">
 	<link rel="stylesheet" type="text/css" href="./blocks/menu/menu.css">
+	<link rel="stylesheet" type="text/css" href="./blocks/app/app.css">
 </head>
 <body>
 
+<div class="app">
+	<div class="menu pure-menu custom-restricted-width">
+		<span class="menu__title pure-menu-heading">JavaScript Single Page Application</span>
+		<ul class="menu__list pure-menu-list">
+			<li class="pure-menu-item" data-index="0">
+				<a class="pure-menu-link" href="https://vk.com" data-action="pick">vk.com</a>
+				<i class="close" data-action="remove"></i>	
+			</li>
+			<li class="pure-menu-item" data-index="1">
+				<a class="pure-menu-link" href="https://ok.ru" data-action="pick">ok.ru</a>
+				<i class="close" data-action="remove"></i>
+			</li>
+			<li class="pure-menu-item" data-index="2">
+				<a class="pure-menu-link" href="https://yahoo.com" data-action="pick">yahoo.com</a>
+				<i class="close" data-action="remove"></i>
+			</li>
+		</ul>
+	</div>	
+</div>
 
-<div class="menu pure-menu custom-restricted-width">
-	<span class="pure-menu-heading">JavaScript Single Page Application</span>
-	<ul class="menu__list pure-menu-list">
-		<li class="pure-menu-item" data-index="0">
-			<a class="pure-menu-link" href="https://vk.com" data-action="pick">vk.com</a>
-			<i class="close" data-action="remove"></i>	
-		</li>
-		<li class="pure-menu-item" data-index="1">
-			<a class="pure-menu-link" href="https://ok.ru" data-action="pick">ok.ru</a>
-			<i class="close" data-action="remove"></i>
-		</li>
-		<li class="pure-menu-item" data-index="2">
-			<a class="pure-menu-link" href="https://yahoo.com" data-action="pick">yahoo.com</a>
-			<i class="close" data-action="remove"></i>
-		</li>
-	</ul>
-</div>	
+
 
 
 
@@ -33,7 +37,7 @@
 <script type="text/javascript" src="./blocks/menu/menu.js"></script>
 
 <!-- Application -->
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="./blocks/app/app.js"></script>
 
 </body>
 </html>
