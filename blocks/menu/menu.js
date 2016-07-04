@@ -10,6 +10,7 @@
 		/**
 		 * @constructor
 		 * @param  {Object} opts
+		 * @param  {HTMLElement} opts.el
 		 */
 		constructor(opts) {
 			this.el = opts.el;
