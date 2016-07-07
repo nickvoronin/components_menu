@@ -7,12 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="./libs/pure-min/pure-min.css">
 	<link rel="stylesheet" type="text/css" href="./blocks/menu/menu.css">
 	<link rel="stylesheet" type="text/css" href="./blocks/app/app.css">
+	<link rel="stylesheet" type="text/css" href="./blocks/form/form.css"
 </head>
 <body>
 
 <div class="app">
 
-	<div class="js-menu"></div>	
+	<div class="js-menu"></div>
+	<div class="js-form"></div>
 </div>
 
 
@@ -23,19 +25,30 @@
 		</span>
 		<ul class="menu__list pure-menu-list">
 			<%for(let i=0; i < this.items.length; i++ ) {%>
-				<li class="pure-menu-item" data-index="0">
+				<li class="pure-menu-item" data-index="<%i%>">
 					<a class="pure-menu-link" href="<%this.items[i].href%>" data-action="pick">
 						<%this.items[i].anchor%>
 					</a>
-					<i class="close" data-action="remove"></i>	
+					<i class="close" data-action="remove"></i>
 				</li>
 			<%}%>
 		</ul>
+		<div class="form"
 	</div>
+</script>
+
+<script type="text/x-tmpl" id="form-tmpl">
+	<form name="add-site" class="form">
+		<input type="text" name="anchor"  placeholder="Favicon name">
+		<input text="text" name="href" placeholder="http//:...">
+		<input type="submit" name="submit" value="Submit" data-action="add">
+	</form>
 </script>
 
 
 <!-- Dependencies -->
+<script type="text/javascript" src="./libs/TemplateEngine.js"></script>
+<script type="text/javascript" src="./blocks/form/form.js"></script>
 <script type="text/javascript" src="./blocks/menu/menu.js"></script>
 
 <!-- Application -->
