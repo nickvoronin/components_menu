@@ -28,7 +28,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+.directory
 
+# PHP Storm directory
+.idea/
 
 ###SublimeText###
 
