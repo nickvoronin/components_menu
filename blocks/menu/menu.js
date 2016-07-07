@@ -46,7 +46,8 @@
 				index
 			});
 
-			this.list.removeChild(item.parentNode);
+			this.data.items.splice(index, 1);
+			this.render();
 		}
 
 		/**

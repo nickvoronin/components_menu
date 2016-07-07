@@ -40,12 +40,15 @@
 <script type="text/x-tmpl" id="form-tmpl">
 	<div class="wrapper">
 		<form name="add-site" class="form">
-			<input type="text" name="anchor"  placeholder="Favicon name">
-			<input text="text" name="href" placeholder="http//:...">
-			<input type="submit" name="submit" value="Submit" data-action="add">
+			<div class="hidden">
+				<input type="text" name="anchor"  placeholder="Favicon name">
+				<input text="text" name="href" placeholder="http//:...">
+			</div>
+			<input type="submit" name="submit" value="Submit" data-action="add" class="buttonSubmit">
 		</form>
 	</div>
 </script>
+
 
 <!-- Dependencies -->
 <script type="text/javascript" src="./libs/TemplateEngine.js"></script>
