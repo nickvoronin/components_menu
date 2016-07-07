@@ -1,22 +1,5 @@
 (function() {
-	'use strict';
-
-	var TemplateEngine = function(html, options) {
-		var re = /<%([^%>]+)?%>/g, reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g, code = 'var r=[];\n', cursor = 0, match;
-		var add = function(line, js) {
-			js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
-				(code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
-			return add;
-		}
-		while(match = re.exec(html)) {
-			add(html.slice(cursor, match.index))(match[1], true);
-			cursor = match.index + match[0].length;
-		}
-		add(html.substr(cursor, html.length - cursor));
-		code += 'return r.join("");';
-		return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
-	}
-
+	"use strict";
 
 	/**
 	 * @class Menu
@@ -35,14 +18,14 @@
 
 			this.render();
 
-			this.list = this.el.querySelector('.menu__list');
-			this.title = this.el.querySelector('.menu__title');
-			
+			this.list = this.el.querySelector(".menu__list");
+			this.title = this.el.querySelector(".menu__title");
+
 			this._initEvents();
 		}
 
 		get _template () {
-			return document.querySelector('#menu').innerHTML;
+			return document.querySelector("#menu").innerHTML;
 		}
 
 		/**
@@ -59,7 +42,7 @@
 		removeItem(item) {
 			let index = parseInt(item.parentNode.dataset.index, 10);
 
-			this.trigger('remove', {
+			this.trigger("remove", {
 				index
 			});
 
@@ -71,17 +54,32 @@
 		* @param  {HTMLElement} item
 		*/
 		pickItem(item) {
-			this.trigger('pick', {
-				href: item.getAttribute('href'),
+			this.trigger("pick", {
+				href: item.getAttribute("href"),
 				anchor: item.textContent
 			});
+		}
+
+
+		/**
+		* Выбор элемента меню
+		* @param  {HTMLElement} item
+		*/
+		addItem(item) {
+			this.trigger("add", {
+				href: item.href,
+				anchor: item.anchor
+			});
+
+			this.data.items.push(item);
+			this.render();
 		}
 
 		/**
 		* Развешиваем события
 		*/
 		_initEvents() {
-			this.el.addEventListener('click', this._onClick.bind(this));
+			this.el.addEventListener("click", this._onClick.bind(this));
 		}
 
 		/**
@@ -93,13 +91,13 @@
 			let item = event.target;
 
 			switch (item.dataset.action) {
-				case 'remove':
-				this.removeItem(item);
-				break;
+					case "remove":
+						this.removeItem(item);
+						break;
 
-				case 'pick':
-				this.pickItem(item);
-				break;
+					case "pick":
+						this.pickItem(item);
+						break;
 			}
 		}
 
@@ -111,13 +109,13 @@
 		trigger (name, data) {
 
 			let widgetEvent = new CustomEvent(name, {
-		        bubbles: true,
-		        detail: data
-		      });
+				bubbles: true,
+				detail: data
+			});
 
-		    this.el.dispatchEvent(widgetEvent);
+			this.el.dispatchEvent(widgetEvent);
 
-			console.log(type, data);
+			console.log(name, data);
 		}
 
 	}
